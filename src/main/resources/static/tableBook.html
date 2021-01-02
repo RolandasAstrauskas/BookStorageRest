@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Storage Application</title>
+    <style>
+        h3 {color: gr;
+            font-size: 300%;}
+        hr {border: 5px solid darkgreen;
+         n  border-radius: 3px;}
+        .vl {border-left: 6px solid green;
+              height: 500px;}
+              th{
+        color:#fff;
+            }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+			$(document).ready(function() {
+
+ 				$.getJSON('http://localhost:8080/demo/all',
+					{ajax : true},
+					function(data){
+						drawTable(data);
+					}
+				);
+				$("#btnAddOne").click(function(){
+					var input = $("#generatedInput");
+
+					$.getJSON('http://localhost:8080/book/list',
+							{ajax : true},
+							function(data){
+								drawTable(data);
+							}
+						);
+				});
+				function drawTable(data) {
+				    for (var i = 0; i < data.length; i++) {
+				        drawRow(data[i]);
+				    }
+				}
+				function drawRow(rowData) {
+				    var row = $("<tr />")
+				    $("#bookList").append(row);
+				    row.append($("<td>" + rowData.barcode + "</td>"));
+				    row.append($("<td>" + rowData.bookName + "</td>"));
+				    row.append($("<td>" + rowData.bookAuthor + "</td>"));
+				    row.append($("<td>" + rowData.quantity + "</td>"));
+				    row.append($("<td>" + rowData.unitPrice + "</td>"));
+				    row.append($("<td>" + rowData.scienceIndex + "</td>"));
+				    row.append($("<td>" + rowData.releaseYear + "</td>"));
+				}
+				// });
+			});
+
+
+    </script>
+    <script>
+                function increaseNumber(){
+                    var number = document.getElementById("generatedInput").value;
+                    document.getElementById("generatedInput").value = number;
+                }
+    </script>
+</head>
+<body>
+<div>
+    <button class="btn btn-success" onclick="increaseNumber()" id="btnAddOne"> Load book</button>
+</div>
+<div>
+    <table class="table table-striped" style="border-bottom:1px solid green" id="bookList">
+        <tr class="bg-info">
+            <th>Barcode</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Science index</th>
+            <th>Release year</th>
+        </tr>
+    </table>
+</div>
+
+</body>
+
+</html>

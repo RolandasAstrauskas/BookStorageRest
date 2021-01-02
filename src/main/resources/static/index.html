@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <title>Book Storage Application</title>
+    <style>
+        h3 {color: gr;
+            font-size: 300%;}
+        hr {border: 5px solid green;
+         n  border-radius: 3px;}
+
+    </style>
+</head>
+
+<body>
+<center>
+    <div class="container">
+        <h3 class=""> Book Storage Application
+        </h3>
+    </div>
+
+    <hr class="rounded">
+
+    <div >
+        <p><a class="btn btn-success" href="postBook.html">Add new books here!</a>
+            <br>
+            <br><a class="btn btn-success" href="postJournal.html">Add new journal here!</a>
+            <br>
+            <br><a class="btn btn-success" href="postABook.html">Add new antique book!</a>
+            <br>
+            <br><a class="btn btn-success" href="update.html">Update item!</a>
+            <br>
+            <br><a class="btn btn-success" href="tableBook.html">Book list!</a>
+            <br>
+
+        <hr class="rounded">
+
+        </p>
+    </div>
+
+    <form action="/book/itemPrice/{barcode}" method="GET">
+        <div>
+            <br>
+            <label for="barcode">Insert barcode and get price of all stock:</label>
+            <input name="barcode" id="barcode" value=>
+        </div>
+        <button class="btn btn-success">Get price</button>
+    </form>
+
+    <form action="/book/find/{barcode}" method="GET">
+        <div >
+            <br>
+            <label for="barcode">Insert barcode:</label>
+            <input name="barcode" id="findByBarcode" value=>
+        </div>
+        <button class="btn btn-success">Search for item</button>
+    </form>
+    <form action="/book/delete/{barcode}" method="POST">
+    </form>
+
+</center>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h3 {color: gr;
+            font-size: 300%;}
+        hr {border: 5px solid darkgreen;
+         n  border-radius: 3px;}
+        p  {color black;
+        font-size: 200%;}
+
+    </style>
+</head>
+<body>
+
+<center>
+
+    <h3> Book Storage Application
+    </h3>
+    <hr>
+    <form action="/book/updateBook/{barcode}" method="POST">
+
+        <p>Update book by barcode</p>
+
+        <div>
+            <label for="barcode">Book barcode:</label>
+            <input name="barcode" id="barcode" value=>
+        </div>
+        <div>
+            <label for="bookName">Book name:</label>
+            <input name="book" id="bookName" value=>
+        </div>
+        <div>
+            <label for="bookAuthor">Author:</label>
+            <input name="author" id="bookAuthor" value=>
+        </div>
+        <div>
+            <label for="quantity">Quantity:</label>
+            <input name="quantity" id="quantity" value=>
+        </div>
+        <div>
+            <label for="unitPrice">Price:</label>
+            <input name="price" id="unitPrice" value=>
+        </div>
+        <div>
+            <br>
+            <button class="btn btn-success">Update book</button>
+        </div>
+    </form>
+    <hr>
+    <br>
+    <br>
+      <a class="btn btn-success" href="index.html">Back to menu!</a>
+
+</center>
+
+</body>
+
+</html>
